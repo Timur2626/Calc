@@ -20,4 +20,8 @@ public class Calculator {
         }
         return a / b;
     }
+
+    public double sin(double angleRadians) {
+        return Math.sin(angleRadians);
+    }
 }
