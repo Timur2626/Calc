@@ -40,13 +40,13 @@ class CalculatorTest {
 
     @ParameterizedTest
     @CsvSource({
-            "1,      2,      3",
-            "-1,    -2,     -3",
-            "0,      0,      0",
-            "1.5,    2.5,    4.0",
-            "-5,     5,      0",
-            "1e10,   1e10,   2e10",
-            "1e-10,  1e-10,  2e-10"
+            "1,2,3",
+            "-1,-2,-3",
+            "0,0,0",
+            "1.5,2.5,4.0",
+            "-5,5,0",
+            "1e10,1e10,2e10",
+            "1e-10,1e-10,2e-10"
     })
     void addParameterized(double a, double b, double expected) {
         assertEquals(expected, calc.add(a, b), 1e-9);
@@ -75,12 +75,12 @@ class CalculatorTest {
 
     @ParameterizedTest
     @CsvSource({
-            "5,      3,      2",
-            "-5,    -3,     -2",
-            "0,      0,      0",
-            "3,      5,     -2",
-            "1e10,   1e10,   0",
-            "0.3,    0.1,    0.2"
+            "5,3,2",
+            "-5,-3,-2",
+            "0,0,0",
+            "3,5,-2",
+            "1e10,1e10,0",
+            "0.3,0.1,0.2"
     })
     void subtractParameterized(double a, double b, double expected) {
         assertEquals(expected, calc.subtract(a, b), 1e-9);
@@ -109,12 +109,12 @@ class CalculatorTest {
 
     @ParameterizedTest
     @CsvSource({
-            "2,      3,      6",
-            "-2,     3,     -6",
-            "-2,    -3,      6",
-            "0,      100,    0",
-            "1e5,    1e5,    1e10",
-            "0.5,    0.5,    0.25"
+            "2,3,6",
+            "-2,3,-6",
+            "-2,-3,6",
+            "0,100,0",
+            "1e5,1e5,1e10",
+            "0.5,0.5,0.25"
     })
     void multiplyParameterized(double a, double b, double expected) {
         assertEquals(expected, calc.multiply(a, b), 1e-9);
@@ -138,12 +138,12 @@ class CalculatorTest {
 
     @ParameterizedTest
     @CsvSource({
-            "6,      3,      2",
-            "-6,     3,     -2",
-            "0,      5,      0",
-            "1,      3,      0.333333333",
-            "-9,    -3,      3",
-            "1e10,   1e5,    1e5"
+            "6,3,2",
+            "-6,3,-2",
+            "0,5,0",
+            "1,3,0.333333333",
+            "-9,-3,3",
+            "1e10,1e5,1e5"
     })
     void divideParameterized(double a, double b, double expected) {
         assertEquals(expected, calc.divide(a, b), 1e-9);
@@ -164,12 +164,7 @@ class CalculatorTest {
     @Test
     @Disabled
     void thisTestFailsOnPurpose() {
-        assertEquals(5, calc.add(2, 2));
+        assertEquals(78, calc.add(2, 2));
     }
 
-    @Test
-    @Disabled
-    void thisTestAlsoFailsOnPurpose() {
-        assertThrows(ArithmeticException.class, () -> calc.divide(5, 2));
-    }
 }
